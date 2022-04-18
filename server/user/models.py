@@ -21,5 +21,4 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_agencies(self):
         objs = self.agencyuser_set.all().select_related("agency")
-        print([o.agency for o in objs])
         return [o.agency for o in objs]
