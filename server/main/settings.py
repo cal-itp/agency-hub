@@ -18,12 +18,16 @@ ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
+    # django
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # thrid party
+    "mailer",
+    # this app
     "user",
     "agency",
 ]
@@ -43,7 +47,7 @@ ROOT_URLCONF = "main.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -85,6 +89,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": f"{_dpv}.NumericPasswordValidator"},
 ]
 
+# Django registration
+ACCOUNT_ACTIVATION_DAYS = 30
+
+# Email
+EMAIL_BACKEND = "mailer.backend.DbBackend"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -104,4 +113,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATICFILES_DIRS = [
     BASE_DIR / "../client/dist",
+]
+
+
+UNREST_STRING_TYPES = [
+    "ULID",
 ]

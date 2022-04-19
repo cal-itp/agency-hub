@@ -34,8 +34,7 @@ class UserAdmin(UserAdmin):
                 "classes": ("wide",),
                 "fields": (
                     "email",
-                    "password1",
-                    "password2",
+                    "agencies",
                     "is_staff",
                     "is_superuser",
                     "is_active",
@@ -45,3 +44,8 @@ class UserAdmin(UserAdmin):
     )
     search_fields = ("email",)
     ordering = ("email",)
+
+    def get_form(self, request, *args, **kwargs):
+        form = super(UserAdmin, self).get_form(request, *args, **kwargs)
+        form.request = request
+        return form
