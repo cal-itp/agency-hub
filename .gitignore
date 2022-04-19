@@ -1,3 +1,8 @@
+# server
 .secret_key
 __pycache__
 db.sqlite3
+
+# client
+node_modules
+dist

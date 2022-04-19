@@ -1,11 +1,13 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from django.utils import timezone
+from django_ulid.models import default, ULIDField
 
 from .manager import CustomUserManager
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    id = ULIDField(default=default, primary_key=True, editable=False)
     email = models.EmailField(unique=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
