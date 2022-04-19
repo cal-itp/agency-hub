@@ -5,6 +5,7 @@ import auth from '@unrest/vue-auth'
 
 import App from '@/App.vue'
 import router from '@/router'
+import store from '@/store'
 
 import '@unrest/tailwind/dist.css'
 
@@ -19,6 +20,7 @@ auth.configure({
 
 createApp(App)
   .use(router)
+  .use(store)
   .use(form.plugin)
   .use(auth.plugin)
   .use(unrest.plugin)
