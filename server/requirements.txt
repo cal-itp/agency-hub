@@ -1,3 +1,4 @@
 Django==4.0.4
 django-ulid==0.0.4
+django-unrest==0.1.4
 psycopg2==2.9.3
