@@ -6,7 +6,8 @@ from main.models import BaseModel
 class Agency(BaseModel):
     class Meta:
         verbose_name_plural = "Agencies"
-        ordering = ('name',)
+        ordering = ("name",)
+
     name = models.CharField(max_length=128)
     slug = models.CharField(max_length=128)
     itp_id = models.IntegerField(unique=True)
