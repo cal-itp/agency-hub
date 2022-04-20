@@ -1,14 +1,18 @@
+from dotenv import dotenv_values
+import os
 from pathlib import Path
-from unrest.settings import get_secret_key
+
+
+config = {
+    **dotenv_values("../.env"),
+    **os.environ,
+}
+
+SECRET_KEY = config['SECRET_KEY']
+METABASE_SECRET_KEY = config['METABASE_SECRET_KEY']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-
-SECRET_KEY = get_secret_key(BASE_DIR)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -122,4 +126,3 @@ UNREST_STRING_TYPES = [
 ]
 
 METABASE_SITE_URL = "http://dashboards.calitp.org"
-METABASE_SECRET_KEY = "51eb0c942b32ed49c8848f366b7aa81f03d0a1765b173a9ad9506e02a9b04e7f"
