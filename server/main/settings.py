@@ -73,11 +73,15 @@ WSGI_APPLICATION = "main.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "agency-hub",
-        "USER": "postgres",
-        "PASSWORD": "postgres",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+        'NAME': config.get('POSTGRES_NAME'),
+        'USER': config.get('POSTGRES_USER'),
+        'PASSWORD': config.get('POSTGRES_PASSWORD'),
+        'HOST': 'db',
+        # "NAME": "agency-hub",
+        # "USER": "postgres",
+        # "PASSWORD": "postgres",
+        # "HOST": "127.0.0.1",
+        "PORT": 5432,
     }
 }
 
