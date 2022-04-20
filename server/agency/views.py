@@ -16,13 +16,12 @@ def metabase_embed(request):
         params["cal_itp_id"] = agency.itp_id
     if dashboard.feed_name:
         agency = Agency.objects.get(id=request.GET["cal_itp_id"])
-        params["feed_name"] = "AC Transit (0)"
+        params["feed_name"] = [f"{agency.name} ({i})" for i in range(agency.url_count)]
     payload = {
         "resource": {"dashboard": dashboard.metabase_id},
         "params": params,
         "exp": expires,
     }
-    print(params)
     token = jwt.encode(payload, settings.METABASE_SECRET_KEY, algorithm="HS256")
     iframe_url = f"{settings.METABASE_SITE_URL}/embed/dashboard/{token}"
     return JsonResponse({"iframe_url": iframe_url})

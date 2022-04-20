@@ -11,6 +11,7 @@ class Agency(BaseModel):
     name = models.CharField(max_length=128)
     slug = models.CharField(max_length=128)
     itp_id = models.IntegerField(unique=True)
+    url_count = models.IntegerField()
 
     def __str__(self):
         return f"#{self.itp_id}-{self.name}"

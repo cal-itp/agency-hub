@@ -1,8 +1,10 @@
+import dashboard from './dashboard'
 import local from './local'
 
 const store = {}
 
 const modules = {
+  dashboard,
   local,
 }
 

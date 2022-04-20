@@ -1,6 +1,12 @@
 <template>
   <div>
-    <iframe :src="iframe_url" v-if="iframe_url" class="metabase-iframe" />
+    <div class="metabase-iframe">
+      <iframe :src="iframe_url" v-if="iframe_url" />
+      <div class="loader">
+        <div class="loader__spinner" />
+        Loading...
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,12 +22,13 @@ export default {
   computed: {
     iframe_url() {
       const agency = this.$store.local.getActiveAgency()
-      if (!agency) {
+      const dashboard = this.$store.local.getActiveDashboard()
+      if (!agency || !dashboard) {
         return null
       }
       console.log(agency.id)
       const params = {
-        dashboard: 50,
+        dashboard: dashboard.id,
         cal_itp_id: agency.id,
       }
       const qs = querystring.stringify(params)
