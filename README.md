@@ -2,21 +2,23 @@
 
 A resource hub for a community of transit agencies [prototype]
 
-## Dummy data
+## Development
 
-To reset the database to the dummy data fixture, run the following.
+Build the project using docker-compose.
 
 ``` bash
-dropdb agency-hub # If it already exists
-createdb agency-hub
-python manage.py migrate
-python manage.py loaddata fixtures/dummy_data.json
-
-python manage.py createsuperuser # optional, follow the prompts
+docker-compose build
+docker-compose up
 ```
 
-Make any desired changes and then run the following:
+Load the dummy data via the fixtures file
 
 ``` bash
-python manage.py dumpdata user metabase agency --indent 2 > fixtures/dummy_data.json
+docker-compose exec server python manage.py loaddata fixtures/dummy_data.json
+```
+
+If you want to update the (commit) any changes to the fixtures run the following.
+
+``` bash
+docker-compose exec server python manage.py dumpdata user metabase agency --indent 2 > fixtures/dummy_data.json
 ```

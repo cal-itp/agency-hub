@@ -1,21 +1,6 @@
 [
 {
   "model": "user.user",
-  "pk": "01G1142SMKCG4STK93Y23MV76P",
-  "fields": {
-    "password": "pbkdf2_sha256$320000$Yli4MT6jPJttykDkgxLc3G$7lPwhTvFzF1L8sygmwPolpvQXwkLWee4dk5q57+ROi8=",
-    "last_login": "2022-04-20T22:17:57.521Z",
-    "is_superuser": true,
-    "email": "cauley.chris@gmail.com",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2022-04-19T14:37:04.019Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.user",
   "pk": "01G14GWDGPCJ6AYQNFYA4200AD",
   "fields": {
     "password": "pbkdf2_sha256$320000$p3vkd3HXFRkoUjQvC9qNky$KZh3VFgyO3J30zHP/oH3gohSRvNxi1SHIW8toYRnsL8=",
