@@ -1,0 +1,14 @@
+@import "./tailwind.css";
+
+.app {
+  &__wrapper {
+    @apply absolute flex flex-col inset-0;
+  }
+  &__content {
+    @apply flex flex-col flex-grow;
+  }
+}
+
+.metabase-iframe {
+  @apply w-full flex-grow;
+}

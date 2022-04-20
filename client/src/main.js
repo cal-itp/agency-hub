@@ -8,6 +8,7 @@ import router from '@/router'
 import store from '@/store'
 
 import '@unrest/tailwind/dist.css'
+import '@/styles/index.css'
 
 auth.configure({
   AUTH_START: '/',
