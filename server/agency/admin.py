@@ -5,4 +5,4 @@ from agency.models import Agency
 
 @admin.register(Agency)
 class AgencyAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["__str__", "itp_id"]

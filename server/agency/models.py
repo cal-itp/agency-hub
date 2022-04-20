@@ -13,7 +13,7 @@ class Agency(BaseModel):
     itp_id = models.IntegerField(unique=True)
 
     def __str__(self):
-        return self.name
+        return f"#{self.itp_id}-{self.name}"
 
 
 class AgencyUser(BaseModel):

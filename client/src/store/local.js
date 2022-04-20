@@ -10,8 +10,12 @@ export default ({ app }) => {
     ls.set(LS_KEY, state)
   }
   const getActiveAgency = () =>{
+    const { user } = app.config.globalProperties.$auth
+    if (!user) {
+      return null
+    }
     const { selected_agency_id } = state
-    const { agencies } = app.config.globalProperties.$auth.user
+    const { agencies } = user
     return agencies.find(a => a.id === selected_agency_id) || agencies[0]
   }
   const setActiveAgency = (agency) => update({ selected_agency_id: agency.id })
