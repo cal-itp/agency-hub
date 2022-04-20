@@ -4,17 +4,21 @@ from main.http import JsonResponse
 import time
 
 from agency.models import Agency
+from metabase.models import Dashboard
 
 
 def metabase_embed(request):
     expires = round(time.time()) + (60 * 60)  # one hour in seconds
     params = {}
-    if "cal_itp_id" in request.GET:
+    dashboard = Dashboard.objects.get(id=request.GET.get("dashboard"))
+    if dashboard.cal_itp_id:
         agency = Agency.objects.get(id=request.GET["cal_itp_id"])
         params["cal_itp_id"] = agency.itp_id
-    print(params)
+    if dashboard.feed_name:
+        agency = Agency.objects.get(id=request.GET["cal_itp_id"])
+        params["feed_name"] = "AC Transit (0)"
     payload = {
-        "resource": {"dashboard": int(request.GET.get("dashboard"))},
+        "resource": {"dashboard": dashboard.metabase_id},
         "params": params,
         "exp": expires,
     }

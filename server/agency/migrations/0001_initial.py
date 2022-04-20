@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Agency',
             fields=[
-                ('id', django_ulid.models.ULIDField(default=ulid.api.api.Api.new, editable=False, primary_key=True, serialize=False)),
+                ('id', django_ulid.models.ULIDField(editable=False, primary_key=True, serialize=False)),
                 ('name', models.CharField(max_length=128)),
                 ('slug', models.CharField(max_length=128)),
                 ('itp_id', models.IntegerField(unique=True)),
@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='AgencyUser',
             fields=[
-                ('id', django_ulid.models.ULIDField(default=ulid.api.api.Api.new, editable=False, primary_key=True, serialize=False)),
+                ('id', django_ulid.models.ULIDField(editable=False, primary_key=True, serialize=False)),
                 ('agency', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='agency.agency')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],

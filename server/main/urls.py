@@ -4,6 +4,8 @@ from unrest.views import index
 
 from agency.views import metabase_embed
 from user.views import user_json, logout_ajax, complete_registration
+import metabase.forms  # noqa
+
 
 # import unrest.user.forms
 

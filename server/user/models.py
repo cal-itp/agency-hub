@@ -2,8 +2,9 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.core.mail import send_mail
 from django.db import models
 from django.utils import timezone
-from django_ulid.models import default, ULIDField
+from django_ulid.models import default
 
+from main.models import ULIDField
 from .manager import CustomUserManager
 
 

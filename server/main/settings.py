@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     # this app
     "user",
     "agency",
+    "metabase",
 ]
 
 MIDDLEWARE = [
