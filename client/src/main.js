@@ -11,7 +11,6 @@ import '@unrest/tailwind/dist.css'
 import '@/styles/index.css'
 
 auth.configure({
-  AUTH_START: '/',
   oauth_providers: [],
   enabled: !process.env.VUE_APP_OFFLINE,
   signup_enabled: false,

@@ -6,18 +6,20 @@
       </router-link>
     </section>
     <section class="navbar__section -right">
-      <unrest-dropdown v-if="dashboard_items?.length" :items="dashboard_items" class="btn -text">
-        {{ $store.local.getActiveDashboard().name }}
-      </unrest-dropdown>
-      /
-      <unrest-dropdown v-if="agency_items?.length" :items="agency_items" class="btn -text">
-        {{ $store.local.getActiveAgency().name }}
-      </unrest-dropdown>
-      <template v-if="url_number_items?.length">
-        /
-        <unrest-dropdown :items="url_number_items" class="btn -text">
-          ({{ $store.local.getActiveUrlNumber() }})
+      <template v-if="$auth.user">
+        <unrest-dropdown v-if="dashboard_items?.length" :items="dashboard_items" class="btn -text">
+          {{ $store.local.getActiveDashboard().name }}
         </unrest-dropdown>
+        /
+        <unrest-dropdown v-if="agency_items?.length" :items="agency_items" class="btn -text">
+          {{ $store.local.getActiveAgency().name }}
+        </unrest-dropdown>
+        <template v-if="url_number_items?.length">
+          /
+          <unrest-dropdown :items="url_number_items" class="btn -text">
+            ({{ $store.local.getActiveUrlNumber() }})
+          </unrest-dropdown>
+        </template>
       </template>
       <unrest-auth-menu />
     </section>

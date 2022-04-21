@@ -18,7 +18,10 @@ const storage = ReactiveRestApi()
 
 export default {
   name: "HomeView",
-  __route: { path: "/" },
+  __route: {
+    path: "/",
+    meta: { authRequired: true },
+  },
   computed: {
     iframe_url() {
       const agency = this.$store.local.getActiveAgency()
