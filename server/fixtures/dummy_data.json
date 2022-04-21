@@ -66,7 +66,7 @@
     "metabase_id": 50,
     "name": "GTFS RT: Individual feed",
     "cal_itp_id": true,
-    "feed_name": false
+    "url_number": false
   }
 },
 {
@@ -76,7 +76,7 @@
     "metabase_id": 26,
     "name": "GTFS Guidelines Dashboard",
     "cal_itp_id": false,
-    "feed_name": true
+    "url_number": true
   }
 },
 {

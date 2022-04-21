@@ -7,7 +7,7 @@ class Dashboard(BaseModel):
     name = models.CharField(max_length=64)
     cal_itp_id = models.BooleanField()
     _ht = "Only used with GTFS Guidelines Date"
-    feed_name = models.BooleanField(help_text=_ht)
+    url_number = models.BooleanField(help_text=_ht)
 
     def __str__(self):
         return self.name

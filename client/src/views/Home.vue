@@ -26,10 +26,10 @@ export default {
       if (!agency || !dashboard) {
         return null
       }
-      console.log(agency.id)
       const params = {
         dashboard: dashboard.id,
         cal_itp_id: agency.id,
+        url_number: this.$store.local.getActiveUrlNumber(),
       }
       const qs = querystring.stringify(params)
       return storage.get("metabase/?"+qs)?.iframe_url

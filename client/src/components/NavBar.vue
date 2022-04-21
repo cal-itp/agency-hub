@@ -7,20 +7,25 @@
     </section>
     <section class="navbar__section -right">
       <unrest-dropdown v-if="dashboard_items?.length" :items="dashboard_items" class="btn -text">
-        Dashboard: {{ $store.local.getActiveDashboard().name }}
-        <i class="fa fa-chevron-down" />
+        {{ $store.local.getActiveDashboard().name }}
       </unrest-dropdown>
+      /
       <unrest-dropdown v-if="agency_items?.length" :items="agency_items" class="btn -text">
-        Agency: {{ $store.local.getActiveAgency().name }}
-        <i class="fa fa-chevron-down" />
+        {{ $store.local.getActiveAgency().name }}
       </unrest-dropdown>
+      <template v-if="url_number_items?.length">
+        /
+        <unrest-dropdown :items="url_number_items" class="btn -text">
+          ({{ $store.local.getActiveUrlNumber() }})
+        </unrest-dropdown>
+      </template>
       <unrest-auth-menu />
     </section>
   </header>
 </template>
 
 <script>
-import { sortBy } from 'lodash'
+import { sortBy, range } from 'lodash'
 
 export default {
   computed: {
@@ -37,6 +42,17 @@ export default {
         click: () => this.$store.local.setActiveDashboard(dashboard),
       }))
     },
+    url_number_items() {
+      const dashboard = this.$store.local.getActiveDashboard()
+      const agency = this.$store.local.getActiveAgency()
+      if (!dashboard || !agency || !dashboard.url_number || agency.url_count < 2) {
+        return
+      }
+      return range(agency.url_count).map(url_number => ({
+        text: `(${url_number})`,
+        click: () => this.$store.local.setActiveUrlNumber(url_number),
+      }))
+    }
   },
 }
 </script>

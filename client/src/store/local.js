@@ -19,7 +19,10 @@ export default ({ app }) => {
     return agencies.find(a => a.id === selected_agency_id) || agencies[0]
   }
 
-  const setActiveAgency = (agency) => update({ selected_agency_id: agency.id })
+  const setActiveAgency = (agency) => update({
+    selected_agency_id: agency.id,
+    url_number: 0,
+  })
 
   const getActiveDashboard = () => {
     const dashboards = app.config.globalProperties.$store.dashboard.getAll()
@@ -32,11 +35,17 @@ export default ({ app }) => {
 
   const setActiveDashboard = (dashboard) => update({ selected_dashboard_id: dashboard.id })
 
+  const getActiveUrlNumber = () => state.selected_url_number || 0
+  const setActiveUrlNumber = (url_number) => update({ selected_url_number: url_number })
+
+
   return {
     update,
     getActiveAgency,
     setActiveAgency,
     getActiveDashboard,
     setActiveDashboard,
+    getActiveUrlNumber,
+    setActiveUrlNumber,
   }
 }

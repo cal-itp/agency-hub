@@ -10,4 +10,4 @@ class DashboardForm(forms.ModelForm):
 
     class Meta:
         model = Dashboard
-        fields = ["name"]
+        fields = ["name", "cal_itp_id", "url_number"]

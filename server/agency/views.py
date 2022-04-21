@@ -11,12 +11,11 @@ def metabase_embed(request):
     expires = round(time.time()) + (60 * 60)  # one hour in seconds
     params = {}
     dashboard = Dashboard.objects.get(id=request.GET.get("dashboard"))
+    agency = Agency.objects.get(id=request.GET["cal_itp_id"])
     if dashboard.cal_itp_id:
-        agency = Agency.objects.get(id=request.GET["cal_itp_id"])
         params["cal_itp_id"] = agency.itp_id
-    if dashboard.feed_name:
-        agency = Agency.objects.get(id=request.GET["cal_itp_id"])
-        params["feed_name"] = [f"{agency.name} ({i})" for i in range(agency.url_count)]
+    if dashboard.url_number:
+        params["feed_name"] = f"{agency.name} ({request.GET['url_number']})"
     payload = {
         "resource": {"dashboard": dashboard.metabase_id},
         "params": params,
