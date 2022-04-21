@@ -15,7 +15,7 @@ auth.configure({
   oauth_providers: [],
   enabled: !process.env.VUE_APP_OFFLINE,
   signup_enabled: false,
-  displayUsername: (user) => user.email.split("@")[0],
+  getDisplayName: (user) => user.email.split("@")[0],
 })
 
 

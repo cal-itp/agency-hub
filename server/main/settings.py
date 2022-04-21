@@ -8,8 +8,8 @@ config = {
     **os.environ,
 }
 
-SECRET_KEY = config['SECRET_KEY']
-METABASE_SECRET_KEY = config['METABASE_SECRET_KEY']
+SECRET_KEY = config["SECRET_KEY"]
+METABASE_SECRET_KEY = config["METABASE_SECRET_KEY"]
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -73,10 +73,10 @@ WSGI_APPLICATION = "main.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        'NAME': config.get('POSTGRES_NAME'),
-        'USER': config.get('POSTGRES_USER'),
-        'PASSWORD': config.get('POSTGRES_PASSWORD'),
-        'HOST': 'db',
+        "NAME": config.get("POSTGRES_NAME"),
+        "USER": config.get("POSTGRES_USER"),
+        "PASSWORD": config.get("POSTGRES_PASSWORD"),
+        "HOST": config.get("POSTGRES_HOST", "db"),
         # "NAME": "agency-hub",
         # "USER": "postgres",
         # "PASSWORD": "postgres",

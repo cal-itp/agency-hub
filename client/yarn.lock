@@ -1550,10 +1550,10 @@
   dependencies:
     "@types/node" "*"
 
-"@unrest/tailwind@^0.1.15":
-  version "0.1.15"
-  resolved "https://registry.yarnpkg.com/@unrest/tailwind/-/tailwind-0.1.15.tgz#39c26072e58c0722b2551241ea2c660e5575a4d2"
-  integrity sha512-JDwW6x2eGJQ1SPwASOP3mOFrd0uKkrUZDLAbJg826K0T8WCODJV3OJxQV8q+TpMzPyb0cryLK8FWZXx3w4V5UQ==
+"@unrest/tailwind@^0.1.17":
+  version "0.1.17"
+  resolved "https://registry.yarnpkg.com/@unrest/tailwind/-/tailwind-0.1.17.tgz#b00c1735dad2f6b649a60002da6385c94afd4cad"
+  integrity sha512-4yekpG9jC+2dXfinMCbdX3e52g2pIe2CoaaOhJzfixvs/GoCB+/rg5hCB8S2WfMhJVF9wgjeqlFhphiRD6RUnQ==
 
 "@unrest/vue-auth@^0.0.10":
   version "0.0.10"

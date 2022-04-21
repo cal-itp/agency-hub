@@ -4,6 +4,13 @@ A resource hub for a community of transit agencies [prototype]
 
 ## Development
 
+First create a .env file in the root directory of this repo with the following values:
+
+```
+SECRET_KEY="ANY_LONG_STRING_IS_FINE_FOR_DEVELOPMENT"
+METABASE_SECRET_KEY= # get this from dashboards.calitp.org
+```
+
 Build the project using docker-compose.
 
 ``` bash
