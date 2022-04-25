@@ -15,7 +15,6 @@ Build the project using docker-compose.
 
 ``` bash
 docker-compose build
-docker-compose exec server python manage.py migrate
 docker-compose up
 ```
 
