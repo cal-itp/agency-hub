@@ -64,3 +64,26 @@
     }
   }
 }
+
+.navbar .navbar__options {
+  @apply flex gap-2 items-center;
+  .multiselect__tags {
+    white-space: pre;
+  }
+  .multiselect__option:after {
+    display: none;
+  }
+  .multiselect__option--selected {
+    background: #f3f3f3;
+    color: #35495e;
+  }
+  ul.multiselect__content {
+    width: 100%;
+  }
+  li.multiselect__element {
+    width: 100%;
+    .multiselect__option {
+      @apply truncate;
+    }
+  }
+}

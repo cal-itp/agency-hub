@@ -1,9 +1,11 @@
 <template>
-  <div class="app__one-card">
-    <p>
-      Please create a password to finish registration
-    </p>
-    <unrest-schema-form form_name="schema/first-password" :success="success" />
+  <div class="modal -relative app__content">
+    <div class="modal-content">
+      <p>
+        Please create a password to finish registration
+      </p>
+      <unrest-schema-form form_name="schema/first-password" :success="success" />
+    </div>
   </div>
 </template>
 

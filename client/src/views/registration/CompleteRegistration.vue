@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <div v-if="error">{{ error }}</div>
-    <div v-else>
-      Processing...
+  <div class="modal -relative app__content">
+    <div class="modal-content">
+      <div v-if="error" class="alert -error">{{ error }}</div>
+      <div v-else>
+        Processing...
+      </div>
     </div>
   </div>
 </template>

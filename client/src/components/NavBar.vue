@@ -6,54 +6,66 @@
       </router-link>
     </section>
     <section class="navbar__section -right">
-      <template v-if="$auth.user">
-        <unrest-dropdown v-if="dashboard_items?.length" :items="dashboard_items" class="btn -text">
-          {{ $store.local.getActiveDashboard().name }}
-        </unrest-dropdown>
+      <div v-if="$auth.user?.id" class="navbar__options">
+        <div>
+          <vue-multiselect
+            v-if="dashboards.length > 0"
+            v-model="$store.local.dashboard"
+            :allowEmpty="false"
+            :options="dashboards"
+            label="name"
+            />
+        </div>
         /
-        <unrest-dropdown v-if="agency_items?.length" :items="agency_items" class="btn -text">
-          {{ $store.local.getActiveAgency().name }}
-        </unrest-dropdown>
+        <div>
+          <vue-multiselect
+            v-if="agencies.length > 0"
+            v-model="$store.local.agency"
+            :allowEmpty="false"
+            :options="agencies"
+            label="name"
+          />
+        </div>
         <template v-if="url_number_items?.length">
           /
-          <unrest-dropdown :items="url_number_items" class="btn -text">
-            ({{ $store.local.getActiveUrlNumber() }})
-          </unrest-dropdown>
+          <vue-multiselect
+            v-if="url_numbers?.length > 1"
+            v-model="$store.local.url_number"
+            :options="url_numbers"
+            :searchable="false"
+          />
         </template>
-      </template>
+      </div>
       <unrest-auth-menu />
     </section>
   </header>
 </template>
 
 <script>
+import VueMultiselect from 'vue-multiselect'
 import { sortBy, range } from 'lodash'
 
+console.log(range())
+
 export default {
+  components: { VueMultiselect },
   computed: {
+    agencies() {
+      return sortBy(this.$auth.user?.agencies || [], a => a.name.toLowerCase())
+    },
+    dashboards() {
+      return sortBy(this.$store.dashboard.getAll() || [], 'name')
+    },
     agency_items() {
       const agencies = sortBy(this.$auth.user?.agencies || [], 'name')
       return agencies.map(agency => ({
         text: agency.name,
-        click: () => this.$store.local.setActiveAgency(agency),
+        click: () => this.$store.local.agency = agency,
       }))
     },
-    dashboard_items() {
-      return this.$store.dashboard.getAll()?.map((dashboard) => ({
-        text: dashboard.name,
-        click: () => this.$store.local.setActiveDashboard(dashboard),
-      }))
-    },
-    url_number_items() {
-      const dashboard = this.$store.local.getActiveDashboard()
-      const agency = this.$store.local.getActiveAgency()
-      if (!dashboard || !agency || !dashboard.url_number || agency.url_count < 2) {
-        return
-      }
-      return range(agency.url_count).map(url_number => ({
-        text: `(${url_number})`,
-        click: () => this.$store.local.setActiveUrlNumber(url_number),
-      }))
+    url_numbers() {
+      const { dashboard, agency } = this.$store.local
+      return dashboard?.url_number && range(agency.url_count)
     }
   },
 }

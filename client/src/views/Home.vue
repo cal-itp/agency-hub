@@ -24,15 +24,14 @@ export default {
   },
   computed: {
     iframe_url() {
-      const agency = this.$store.local.getActiveAgency()
-      const dashboard = this.$store.local.getActiveDashboard()
+      const { agency, dashboard, url_number } = this.$store.local
       if (!agency || !dashboard) {
         return null
       }
       const params = {
         dashboard: dashboard.id,
         cal_itp_id: agency.id,
-        url_number: this.$store.local.getActiveUrlNumber(),
+        url_number,
       }
       const qs = querystring.stringify(params)
       return storage.get("metabase/?"+qs)?.iframe_url

@@ -1555,15 +1555,15 @@
   resolved "https://registry.yarnpkg.com/@unrest/tailwind/-/tailwind-0.1.17.tgz#b00c1735dad2f6b649a60002da6385c94afd4cad"
   integrity sha512-4yekpG9jC+2dXfinMCbdX3e52g2pIe2CoaaOhJzfixvs/GoCB+/rg5hCB8S2WfMhJVF9wgjeqlFhphiRD6RUnQ==
 
-"@unrest/vue-auth@^0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@unrest/vue-auth/-/vue-auth-0.0.10.tgz#e58f1e1a0b341182c67424abe9d5054fcf31276e"
-  integrity sha512-e0F96SCCanvRczmwc7rJq5qviDINC/nHzU4KX4VGmjNkjNRyNEBq9xeywi7ShloZCUbuw3jNxlaERA9e7P7sKg==
+"@unrest/vue-auth@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@unrest/vue-auth/-/vue-auth-0.0.11.tgz#1ab2a8e13ca4e8bd84ea4fa418d15ac3147580d7"
+  integrity sha512-mcho0w74IY0HTfhV+KZ7NsYirpo8N+PDvW0Nd9GxRskBdXwc/OQLaNvrAzCHSpDUfURnSsBqbzJ2dbOtaQQbCw==
 
-"@unrest/vue-form@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@unrest/vue-form/-/vue-form-0.0.12.tgz#4683d141286ac8aca43564bcabf0e483b3a5b1ab"
-  integrity sha512-2Swo8bElLEPBd8Uk9O8OWLhukAnG4oNLukgY1BP4eJ3tS96dNDNl/QsvCl+vthAEL7a7HRrUdniFCz9e2ecmMg==
+"@unrest/vue-form@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@unrest/vue-form/-/vue-form-0.0.13.tgz#e895a741efe5054b4df44df4faf302e86021f838"
+  integrity sha512-lt2AN9XWkzp5QmRoAZqJ620Wz3CY+0LrL0u2Ys5nMZfVLfY7K7DE3sSs3pwCVhBTpBpNbphKFDy5hM38YtqWkA==
   dependencies:
     jsonschema "^1.4.0"
     lodash.pick "^4.4.0"
@@ -1578,10 +1578,10 @@
     local-storage-json "^1.1.0"
     lodash.debounce "^4.0.8"
 
-"@unrest/vue@^0.2.4":
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/@unrest/vue/-/vue-0.2.4.tgz#18a36598888366d65382ced31880d82603c87f85"
-  integrity sha512-jLfeKb4tytO4fzzfdZhsz9OrJPLasbaJBcY3e+5QRN9ducYngMzuWl9DcjHz/GXgOrHxor1WQmN4Okov5/dwHg==
+"@unrest/vue@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@unrest/vue/-/vue-0.2.5.tgz#3ce8e44077cdd6571b72bf372408df475002345d"
+  integrity sha512-7MLdJDuXrpmrofcgl1lz3AE7EEiq3pQTPtwwra8JyWeuoNZUwDYuFoqcQ5X0K7uGVbIlxNagB3HyJjPW7MHDiQ==
   dependencies:
     dedent "^0.7.0"
     lodash.clonedeep "^4.5.0"
@@ -8775,6 +8775,11 @@ vue-loader@^17.0.0:
     chalk "^4.1.0"
     hash-sum "^2.0.0"
     loader-utils "^2.0.0"
+
+vue-multiselect@^3.0.0-alpha.2:
+  version "3.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/vue-multiselect/-/vue-multiselect-3.0.0-alpha.2.tgz#58186f781136e71f1272b98690b569a0c00ed161"
+  integrity sha512-Xp9fGJECns45v+v8jXbCIsAkCybYkEg0lNwr7Z6HDUSMyx2TEIK2giipPE+qXiShEc1Ipn+ZtttH2iq9hwXP4Q==
 
 vue-router@4:
   version "4.0.14"

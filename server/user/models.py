@@ -4,6 +4,7 @@ from django.db import models
 from django.utils import timezone
 from django_ulid.models import default
 
+from agency.models import Agency
 from main.models import ULIDField
 from .manager import CustomUserManager
 
@@ -24,6 +25,8 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.email
 
     def get_agencies(self):
+        if self.is_staff:
+            return Agency.objects.all()
         objs = self.agencyuser_set.all().select_related("agency")
         return [o.agency for o in objs]
 
