@@ -5,7 +5,7 @@
     @apply absolute flex flex-col inset-0;
   }
   &__content {
-    @apply flex flex-col flex-grow;
+    @apply flex flex-col flex-grow justify-start pt-16;
   }
 }
 

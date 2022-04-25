@@ -22,7 +22,7 @@ auth.configure({
 createApp(App)
   .use(router)
   .use(store)
-  .use(form.plugin)
+  .use(form)
   .use(auth.plugin)
   .use(unrest.plugin)
   .use(unrest.ui)
