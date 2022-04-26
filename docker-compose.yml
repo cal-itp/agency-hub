@@ -14,7 +14,9 @@ services:
         context: .
         dockerfile: server/Dockerfile
     working_dir: /code/server
-    command: python manage.py runserver 0.0.0.0:8000
+    command:
+      bash -c "python manage.py migrate &&
+      python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     ports:
@@ -34,4 +36,4 @@ services:
     ports:
         - "8765:8765"
     volumes:
-      - ./client/dist:/code/client/dist
+      - .:/code

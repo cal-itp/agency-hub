@@ -12,6 +12,9 @@ from .manager import CustomUserManager
 class User(AbstractBaseUser, PermissionsMixin):
     id = ULIDField(default=default, primary_key=True, editable=False)
     email = models.EmailField(unique=True)
+    first_name = models.CharField(max_length=64, blank=True)
+    last_name = models.CharField(max_length=64, blank=True)
+    affiliation = models.CharField(max_length=64, blank=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)

@@ -21,7 +21,10 @@ class UserAdmin(UserAdmin):
         "is_active",
     )
     fieldsets = (
-        (None, {"fields": ("email", "password")}),
+        (
+            None,
+            {"fields": ("email", "first_name", "last_name", "affiliation", "password")},
+        ),
         (
             "Permissions",
             {"fields": ("agencies", "is_staff", "is_superuser", "is_active")},
@@ -32,15 +35,10 @@ class UserAdmin(UserAdmin):
             None,
             {
                 "classes": ("wide",),
-                "fields": (
-                    "email",
-                    "agencies",
-                    "is_staff",
-                    "is_superuser",
-                    "is_active",
-                ),
+                "fields": ("email", "first_name", "last_name", "affiliation",),
             },
         ),
+        ("Permissions", {"fields": ("agencies", "is_staff", "is_superuser")},),
     )
     search_fields = ("email",)
     ordering = ("email",)

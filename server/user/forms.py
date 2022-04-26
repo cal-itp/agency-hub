@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth import login, get_user_model
+from django.contrib.auth import login, get_user_model, password_validation
 from django.contrib.auth.forms import UserChangeForm, PasswordResetForm, SetPasswordForm
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.admin.widgets import FilteredSelectMultiple
@@ -105,22 +105,54 @@ class PasswordResetForm(PasswordResetForm):
 
 
 @schema.register
-class FirstPasswordForm(SetPasswordForm):
-    user_can_POST = "AUTH"
+class FirstPasswordForm(forms.ModelForm):
+    user_can_GET = "SELF"
+    user_can_PUT = "SELF"
+    error_messages = {
+        "password_mismatch": "The two password fields didn’t match.",
+    }
+    new_password1 = forms.CharField(
+        label="New password",
+        widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
+        strip=False,
+    )
+    new_password2 = forms.CharField(
+        label="Confirm Password",
+        strip=False,
+        widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
+    )
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(None, *args, **kwargs)
-        self.fields["new_password1"].help_text = None
-        self.fields["new_password2"].label = "Confirm Password"
+    def clean_new_password2(self):
+        password1 = self.cleaned_data.get("new_password1")
+        password2 = self.cleaned_data.get("new_password2")
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError(
+                self.error_messages["password_mismatch"], code="password_mismatch",
+            )
+        password_validation.validate_password(password2, self.instance)
+        return password2
 
-    def save(self, *args, **kwargs):
-        self.user = self.request.user
-        super().save(*args, **kwargs)
+    def save(self, commit=True):
+        password = self.cleaned_data["new_password1"]
+        self.instance.set_password(password)
+        if commit:
+            self.instance.save()
 
-        # Changing a users password loggs them out
-        user = get_user_model().objects.get(id=self.user.id)
+        user_id = self.instance.id
+        user = get_user_model().objects.get(id=user_id)
         login(self.request, user, backend="django.contrib.auth.backends.ModelBackend")
+
         return user
+
+    class Meta:
+        model = get_user_model()
+        fields = [
+            "first_name",
+            "last_name",
+            "affiliation",
+            "new_password1",
+            "new_password2",
+        ]
 
 
 def get_reset_user(uidb64, token):

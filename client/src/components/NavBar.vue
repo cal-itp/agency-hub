@@ -6,7 +6,7 @@
       </router-link>
     </section>
     <section class="navbar__section -right">
-      <div v-if="$auth.user?.id" class="navbar__options">
+      <div v-if="show_fields" class="navbar__options">
         <div>
           <vue-multiselect
             v-if="dashboards.length > 0"
@@ -45,11 +45,12 @@
 import VueMultiselect from 'vue-multiselect'
 import { sortBy, range } from 'lodash'
 
-console.log(range())
-
 export default {
   components: { VueMultiselect },
   computed: {
+    show_fields() {
+      return this.$auth.user?.id && !this.$route.path.startsWith('/registration/')
+    },
     agencies() {
       return sortBy(this.$auth.user?.agencies || [], a => a.name.toLowerCase())
     },
