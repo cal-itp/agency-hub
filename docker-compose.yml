@@ -31,7 +31,8 @@ services:
     build:
         context: .
         dockerfile: client/Dockerfile
-    command: yarn watch
+    command:
+      bash -c "yarn install && yarn watch"
     working_dir: /code/client
     ports:
         - "8765:8765"
