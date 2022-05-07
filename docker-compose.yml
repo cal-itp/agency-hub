@@ -4,7 +4,7 @@ services:
   db:
     image: postgres
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
@@ -42,3 +42,6 @@ services:
         - "8765:8765"
     volumes:
       - .:/code
+
+volumes:
+  postgres-data:
