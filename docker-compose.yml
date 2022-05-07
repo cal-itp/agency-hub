@@ -10,7 +10,8 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     healthcheck:
-      test: "exit 0"
+      test: pg_isready -U postgres
+      interval: 5s
   server:
     build:
         context: .
