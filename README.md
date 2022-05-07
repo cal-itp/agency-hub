@@ -33,7 +33,7 @@ docker-compose exec server python manage.py loaddata fixtures/dummy_data.json
 If you want to update the (commit) any changes to the fixtures run the following.
 
 ``` bash
-docker-compose exec server python manage.py dumpdata user metabase agency --indent 2 > fixtures/dummy_data.json
+docker-compose exec server python manage.py dumpdata user metabase agency --indent 2 > server/fixtures/dummy_data.json
 ```
 
 ## Features
