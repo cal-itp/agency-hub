@@ -1,0 +1,18 @@
+# development assets
+.git/
+.dockerignore
+Dockerfile
+docker-compose.yml
+docker-compose.*.yml
+
+# local environment
+.env
+
+# client artifacts
+client/Dockerfile
+client/dist/
+client/node_modules/
+
+# server artifacts
+server/Dockerfile
+
