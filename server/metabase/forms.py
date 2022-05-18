@@ -1,10 +1,10 @@
 from django import forms
-from unrest import schema
+import unrest_schema
 
 from metabase.models import Dashboard
 
 
-@schema.register
+@unrest_schema.register
 class DashboardForm(forms.ModelForm):
     user_can_LIST = "ALL"
 
