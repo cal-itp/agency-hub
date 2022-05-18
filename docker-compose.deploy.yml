@@ -1,0 +1,14 @@
+services:
+  client:
+    build:
+      dockerfile: Dockerfile
+      target: client
+    deploy:
+      replicas: 0
+  server:
+    build:
+      dockerfile: Dockerfile
+      target: composite
+    volumes: []
+
+

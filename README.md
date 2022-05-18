@@ -14,11 +14,21 @@ METABASE_SECRET_KEY= # get this from dashboards.calitp.org
 Build the project using docker-compose.
 
 ```bash
-docker-compose build
-docker-compose up
+docker-compose up --build
 ```
 
 The server should now be running at <http://agency-hub.localhost:8000>
+
+## Testing
+
+To test a production build configuration locally:
+
+```bash
+docker-compose \
+    -f docker-compose.yml \
+    -f docker-compose.deploy.yml \
+    up --build
+```
 
 ## Dummy data
 
