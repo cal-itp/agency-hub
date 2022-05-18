@@ -20,8 +20,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY server/ ./
 
-ENTRYPOINT [ "python", "manage.py" ]
-CMD [ "runserver", "0.0.0.0:8000" ]
+ENTRYPOINT [ "/server/entrypoint.sh" ]
 
 # build composite
 FROM server AS composite

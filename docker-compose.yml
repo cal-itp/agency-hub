@@ -16,9 +16,6 @@ services:
     build:
         context: .
         dockerfile: server/Dockerfile
-    command:
-      bash -c "python manage.py migrate &&
-      python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     ports:
@@ -27,6 +24,7 @@ services:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - DJANGO_MIGRATE_ON_STARTUP=true
     env_file: .env
     depends_on:
       db:
