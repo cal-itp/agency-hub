@@ -10,7 +10,7 @@ from django_registration.backends.activation.views import RegistrationView
 
 from agency.models import Agency, AgencyUser
 from .models import User
-from unrest import schema
+import unrest_schema
 
 
 class UserCreationForm(forms.ModelForm):
@@ -66,7 +66,7 @@ class UserChangeForm(UserChangeForm):
         fields = ("email", "agencies")
 
 
-@schema.register
+@unrest_schema.register
 class LoginForm(forms.Form):
     user_can_POST = "ALL"
     email = forms.CharField(label="Email", max_length=150)
@@ -93,7 +93,7 @@ class LoginForm(forms.Form):
         login(self.request, self.user, backend=backend)
 
 
-@schema.register
+@unrest_schema.register
 class PasswordResetForm(PasswordResetForm):
     user_can_POST = "ALL"
 
@@ -104,7 +104,7 @@ class PasswordResetForm(PasswordResetForm):
         return super().save(*args, **kwargs)
 
 
-@schema.register
+@unrest_schema.register
 class FirstPasswordForm(forms.ModelForm):
     user_can_GET = "SELF"
     user_can_PUT = "SELF"
@@ -168,7 +168,7 @@ def get_reset_user(uidb64, token):
         return user
 
 
-@schema.register
+@unrest_schema.register
 class ResetSetPasswordForm(SetPasswordForm):
     user_can_POST = "ALL"
 
