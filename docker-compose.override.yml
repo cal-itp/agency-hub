@@ -1,0 +1,18 @@
+# adds development configurations
+
+services:
+  # mount live code into server
+  server:
+    volumes:
+      - ./server:/server
+      - ./client/dist:/server/static
+
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: client
+    entrypoint: sh
+    command: -c "yarn install && yarn watch"
+    volumes:
+      - ./client:/client

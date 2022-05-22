@@ -11,7 +11,7 @@ SECRET_KEY="ANY_LONG_STRING_IS_FINE_FOR_DEVELOPMENT"
 METABASE_SECRET_KEY= # get this from dashboards.calitp.org
 ```
 
-Build the project using docker-compose.
+Build and run the project using docker-compose.
 
 ```bash
 docker-compose up --build
@@ -24,11 +24,10 @@ The server should now be running at <http://agency-hub.localhost:8000>
 To test a production build configuration locally:
 
 ```bash
-docker-compose \
-    -f docker-compose.yml \
-    -f docker-compose.deploy.yml \
-    up --build
+docker-compose -f docker-compose.yml up --build
 ```
+
+This works because `docker-compose.override.yml` gets applied automatically on top of `docker-compose.yml` when no files are explicitely passed, adding development services. By explicitely passing just the base file, the development overrides do not get applied.
 
 ## Dummy data
 
