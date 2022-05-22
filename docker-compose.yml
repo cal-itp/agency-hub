@@ -14,10 +14,9 @@ services:
       interval: 5s
   server:
     build:
-        context: .
-        dockerfile: server/Dockerfile
-    volumes:
-      - .:/code
+      context: .
+      dockerfile: Dockerfile
+      target: composite
     ports:
       - "8000:8000"
     environment:
@@ -29,16 +28,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-  client:
-    build:
-        context: .
-        dockerfile: client/Dockerfile
-    command:
-      bash -c "yarn install && yarn watch"
-    ports:
-        - "8765:8765"
-    volumes:
-      - .:/code
 
 volumes:
   postgres-data:
