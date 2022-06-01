@@ -30,7 +30,7 @@ export default {
       }
       const params = {
         dashboard: dashboard.id,
-        cal_itp_id: agency.id,
+        agency_id: agency.id,
         url_number,
       }
       const qs = querystring.stringify(params)

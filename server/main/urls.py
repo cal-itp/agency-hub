@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 from main.views import index
 
-from agency.views import metabase_embed
+from agency.views import metabase_embed, agency_notices
 from user.views import user_json, logout_ajax, complete_registration
 import metabase.forms  # noqa
 
@@ -14,5 +14,6 @@ urlpatterns = [
     path("api/auth/logout/", logout_ajax),
     path("api/registration/complete/<str:activation_key>/", complete_registration),
     path("api/metabase/", metabase_embed),
+    path("api/agency-notices/<agency_id>/", agency_notices),
     re_path("", include("unrest_schema.urls")),
 ]
