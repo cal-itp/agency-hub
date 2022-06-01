@@ -1,7 +1,8 @@
 import os
 from pathlib import Path
 
-
+BASE_DIR = Path(__file__).resolve().parent.parent
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = str(BASE_DIR / "credentials.json")
 config = {
     **os.environ,
 }
@@ -10,7 +11,6 @@ SECRET_KEY = config["SECRET_KEY"]
 METABASE_SECRET_KEY = config["METABASE_SECRET_KEY"]
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

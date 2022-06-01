@@ -1,4 +1,5 @@
 import dashboard from './dashboard'
+import notices from './notices'
 import local from './local'
 
 const store = {}
@@ -6,6 +7,7 @@ const store = {}
 const modules = {
   dashboard,
   local,
+  notices,
 }
 
 export default {

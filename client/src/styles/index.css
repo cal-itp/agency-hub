@@ -87,3 +87,21 @@
     }
   }
 }
+
+.navbar-notices {
+  @apply cursor-pointer relative;
+  &__badge {
+    @apply absolute bg-green-400 flex items-center justify-center rounded-full;
+    bottom: -0.5rem;
+    font-size: 0.8rem;
+    height: 1.25rem;
+    right: -0.5rem;
+    min-width: 1.25rem;
+    &.-red {
+      @apply bg-red-400
+    }
+  }
+  .fas.-red {
+    @apply text-red-500;
+  }
+}

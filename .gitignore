@@ -5,6 +5,7 @@
 .secret_key
 __pycache__
 db.sqlite3
+server/credentials.json
 
 # client
 node_modules

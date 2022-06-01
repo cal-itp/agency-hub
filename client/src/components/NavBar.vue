@@ -4,6 +4,7 @@
       <router-link class="navbar__brand" to="/">
         Agency Hub
       </router-link>
+      <agency-alerts />
     </section>
     <section class="navbar__section -right">
       <div v-if="show_fields" class="navbar__options">
@@ -45,8 +46,10 @@
 import VueMultiselect from 'vue-multiselect'
 import { sortBy, range } from 'lodash'
 
+import AgencyAlerts from '@/components/AgencyAlerts.vue'
+
 export default {
-  components: { VueMultiselect },
+  components: { AgencyAlerts, VueMultiselect },
   computed: {
     show_fields() {
       return this.$auth.user?.id && !this.$route.path.startsWith('/registration/')
