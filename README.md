@@ -11,6 +11,8 @@ SECRET_KEY="ANY_LONG_STRING_IS_FINE_FOR_DEVELOPMENT"
 METABASE_SECRET_KEY= # get this from dashboards.calitp.org
 ```
 
+Next download the "AgencyHub BigQuery read-only service user key" and save it as `server/credentials.json`. If you don't have access to this, skip this step and be aware that all requests to Big Query will fail (currently just the notices badge at the top).
+
 Build and run the project using docker-compose.
 
 ```bash

@@ -4,7 +4,7 @@
       <router-link class="navbar__brand" to="/">
         Agency Hub
       </router-link>
-      <agency-alerts />
+      <agency-alerts v-if="$auth.user" />
     </section>
     <section class="navbar__section -right">
       <div v-if="show_fields" class="navbar__options">
