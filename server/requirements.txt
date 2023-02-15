@@ -1,4 +1,4 @@
-Django==4.0.4
+Django==4.1.7
 django-mailer==2.2
 django-registration==3.2
 django-ulid==0.0.4
