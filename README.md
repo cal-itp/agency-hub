@@ -1,4 +1,6 @@
-# Agency Hub
+# [ARCHIVED] Agency Hub
+
+_This repository is no longer maintained._
 
 A resource hub for a community of transit agencies [prototype]
 
